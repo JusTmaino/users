@@ -35,3 +35,7 @@ There is two rest endpoints exposed:
 ## Swagger V3 (Open api)
 
 The swagger is accessible via this link: http://localhost:8080/swagger-ui/index.html
+
+## Postman collection
+
+Postman collection is provided under postman folder

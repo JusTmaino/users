@@ -1,10 +1,12 @@
 package fr.supralog.users.web.dto.response;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@Schema(description = "Get user response")
 public class GetUserResponse {
     private Long id;
     private String firstName;
