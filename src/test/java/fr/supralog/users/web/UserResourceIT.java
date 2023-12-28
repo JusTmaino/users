@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.supralog.users.domain.User;
 import fr.supralog.users.repositories.UserRepository;
 import fr.supralog.users.services.UserService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -37,13 +38,18 @@ public class UserResourceIT {
 
     private User buildUser() {
         var user = new User();
-        user.setId(1L);
         user.setFirstName("Amine");
         user.setLastName("ELEUCH");
         user.setAge(32);
         user.setAddress("7 chemin de tanit 06160 Antibes");
         user.setCountry("France");
         return user;
+    }
+
+    @BeforeEach
+    void clean(){
+        userRepository.deleteAll();
+        userRepository.flush();
     }
 
     @Test
@@ -85,7 +91,7 @@ public class UserResourceIT {
         mockMvc.perform(post("/user")
                         .content(jsonInString)
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isBadRequest());
     }
 
     @Test

@@ -8,8 +8,8 @@ import fr.supralog.users.mappers.UserMapperImpl;
 import fr.supralog.users.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
@@ -22,7 +22,7 @@ public class UserServiceTest {
 
     private static final Long USER_ID = 1L;
     private final UserService userService;
-    @Mock
+    @Spy
     private UserRepository userRepository;
     private final UserMapper userMapper;
 
@@ -70,7 +70,7 @@ public class UserServiceTest {
         assertThrows(ForbiddenException.class, () -> userService.createUser(user));
     }
 
-    //@Test
+    @Test
     void getUserByIdOk() {
         var user = userMapper.UserToUserDb(buildUser());
         when(userRepository.findById(USER_ID)).thenReturn(Optional.of(user));

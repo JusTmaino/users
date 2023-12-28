@@ -19,6 +19,7 @@ public class UserService {
     private final UserMapper userMapper;
 
     /**
+     * create user with a given informations
      *
      * @param user to be created
      * @return the created user if it fulfills the conditions
@@ -28,7 +29,7 @@ public class UserService {
         if(user.getAge() > 18 && FRANCE.equals(user.getCountry())){
             var userDb = userMapper.UserToUserDb(user);
             var createdUser = userRepository.save(userDb);
-            log.info("user has been created");
+            log.info("user has been created successfully");
             return userMapper.UserDbToUser(createdUser);
         } else {
             throw new ForbiddenException("Only adults ( age > 18 years) and that live in France can create an account!");
@@ -36,9 +37,10 @@ public class UserService {
     }
 
     /**
+     * Get specific user by id
      *
      * @param id of the specific user to get
-     * @return specific user by id
+     * @return specific user that match the id
      */
     @Transactional(readOnly = true)
     public User getUserById(Long id) {
