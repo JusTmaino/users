@@ -9,7 +9,6 @@ import fr.supralog.users.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
@@ -22,8 +21,7 @@ public class UserServiceTest {
 
     private static final Long USER_ID = 1L;
     private final UserService userService;
-    @Spy
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
     private final UserMapper userMapper;
 
     public UserServiceTest() {
