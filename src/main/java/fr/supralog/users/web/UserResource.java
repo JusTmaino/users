@@ -19,7 +19,7 @@ public class UserResource {
     private final UserService userService;
     private final UserMapper userMapper;
 
-    @Operation(summary = "create user")
+    @Operation(summary = "create user with given information")
     @PostMapping
     public ResponseEntity<CreateUserResponse> createUser(@RequestBody @Valid final CreateUserRequest createUserRequest) {
         var user = userMapper.createUserRequestToUser(createUserRequest);
@@ -27,6 +27,7 @@ public class UserResource {
         return new ResponseEntity<>(new CreateUserResponse(createdUser.getId()), HttpStatus.CREATED);
     }
 
+    @Operation(summary = "get specific user by id")
     @GetMapping("/{id}")
     public ResponseEntity<GetUserResponse> getUserById(@PathVariable final Long id) {
         var user = userService.getUserById(id);
