@@ -23,13 +23,13 @@ There is two rest endpoints exposed:
 - POST /user: 
 
     - Create user with conditions, only adults ( age > 18 years) and that live in France can create an account, otherwise it return a forbidden error (403)
-    - As the address is optional, a default value "Place du gaulle 06600 Antibes" is being set in cause it is not mentioned in the request
+    - As the address is optional, a default value "Place du gaulle 06600 Antibes" is being set in case it is not mentioned in the request
 
 
 - GET /user/{id}: 
 
-    - get a specific user by id (id is path variable)
-    - if the user with the given id doesn't exist in the database, a resource not found error will be thrown (404)
+    - get a specific user by id (id is a path variable)
+    - if the user with the given id doesn't exist in the database, a resource not found exception will be thrown (404)
 
 
 ## Swagger V3 (Open api)
