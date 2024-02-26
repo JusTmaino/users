@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+class UserServiceTest {
 
     private static final Long USER_ID = 1L;
     private final UserService userService;
@@ -70,7 +70,7 @@ public class UserServiceTest {
 
     @Test
     void getUserByIdOk() {
-        var user = userMapper.UserToUserDb(buildUser());
+        var user = userMapper.userToUserDb(buildUser());
         when(userRepository.findById(USER_ID)).thenReturn(Optional.of(user));
         var result = assertDoesNotThrow(() -> userService.getUserById(USER_ID));
         assertEquals(user.getId(), result.getId());

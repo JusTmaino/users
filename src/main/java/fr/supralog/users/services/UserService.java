@@ -27,10 +27,10 @@ public class UserService {
     @Transactional
     public User createUser(User user) {
         if(user.getAge() > 18 && FRANCE.equals(user.getCountry())){
-            var userDb = userMapper.UserToUserDb(user);
+            var userDb = userMapper.userToUserDb(user);
             var createdUser = userRepository.save(userDb);
             log.info("user has been created successfully");
-            return userMapper.UserDbToUser(createdUser);
+            return userMapper.userDbToUser(createdUser);
         } else {
             throw new ForbiddenException("Only adults ( age > 18 years) and that live in France can create an account!");
         }
@@ -46,6 +46,6 @@ public class UserService {
     public User getUserById(Long id) {
         var userDb = userRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("User not found"));
-        return userMapper.UserDbToUser(userDb);
+        return userMapper.userDbToUser(userDb);
     }
 }

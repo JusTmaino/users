@@ -11,9 +11,9 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface UserMapper {
 
-    User UserDbToUser(final UserDb userDb);
+    User userDbToUser(final UserDb userDb);
 
-    UserDb UserToUserDb(final User user);
+    UserDb userToUserDb(final User user);
 
     @Mapping(target = "id", ignore = true)
     User createUserRequestToUser(CreateUserRequest createUserRequest);

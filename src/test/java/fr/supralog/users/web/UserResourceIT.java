@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UserResourceIT {
+class UserResourceIT {
 
     private static final Long USER_ID = 1L;
 
