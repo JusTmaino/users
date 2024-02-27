@@ -19,10 +19,10 @@ class RemoteUserServiceIT {
 
     private User buildUser() {
         var user = new User();
-        user.setFirstName("Amine");
-        user.setLastName("ELEUCH");
-        user.setAge(32);
-        user.setAddress("7 chemin de tanit 06160 Antibes");
+        user.setFirstName("Jean");
+        user.setLastName("Dupont");
+        user.setAge(40);
+        user.setAddress("7 Rue de la croix 06600 Antibes");
         user.setCountry("France");
         return user;
     }
