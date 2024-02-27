@@ -40,7 +40,7 @@ public class WiremockConfiguration {
             log.error("Could not start wiremock server on port {}, exception : {}", this.port, e.getMessage());
             return;
         }
-        configureFor("localhost", this.port);
+        configureFor(this.port);
         log.info("Wiremock server started on port {}", this.port);
     }
 
