@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 /**
  * Configuration for database tests
  * we can use @ComponentScan in case we have embedded jar that contains useful components and configurations
- * we can use @EnableTransactionManagement to make transactions work in Spring, by default spring activate it because we are using spring data
+ * we can use @EnableTransactionManagement to make transactions work in Spring.
+ * By default, spring activate it because we are using spring-data (also when using spring-tx)
  */
 @Configuration
 @EnableJpaRepositories(basePackages = "fr.supralog.users")
