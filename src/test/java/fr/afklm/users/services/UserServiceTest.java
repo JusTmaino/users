@@ -45,7 +45,7 @@ class UserServiceTest {
     @Test
     void createUserOk() {
         var user = buildUser();
-        Assertions.assertDoesNotThrow(() -> userService.createUser(user));
+        assertDoesNotThrow(() -> userService.createUser(user));
     }
 
     @Test
